@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "7125f83b-e2ca-4acd-9feb-d7b812ef2924",
+		"name": "Senai.Peoples.Manha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lista todos os Funcionarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/funcionarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"funcionarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra um novo Funcionario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Mateus\",\r\n    \"sobrenome\" : \"Rodrigues\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/funcionarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"funcionarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca funcionário pelo id passado na URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/funcionarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"funcionarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza o registro do funcionário pelo id na URL",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/funcionarios/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"funcionarios",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta o registro de um funcionario pelo id passado na URL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/funcionarios/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"funcionarios",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace senai_filmes_webApi
+namespace Senai.Peoples.WebApi
 {
     public class Startup
     {
@@ -16,7 +16,6 @@ namespace senai_filmes_webApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // Define o uso de Controllers
             services.AddControllers();
         }
 
@@ -32,7 +31,6 @@ namespace senai_filmes_webApi
 
             app.UseEndpoints(endpoints =>
             {
-                // Define o mapeamento dos Controllers
                 endpoints.MapControllers();
             });
         }
