@@ -11,3 +11,6 @@ CREATE TABLE Funcionarios
 	,sobrenome VARCHAR (200) NOT NULL
 );
 GO
+
+ALTER TABLE Funcionarios
+ADD DataNascimento DATE
