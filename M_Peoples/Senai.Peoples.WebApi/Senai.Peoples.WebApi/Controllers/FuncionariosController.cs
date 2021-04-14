@@ -87,9 +87,68 @@ namespace Senai.Peoples.WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _funcionariosRepository.Deletar(id);
+            // Cria um objeto funcionarioBuscado que irá receber o funcionário buscado no banco de dados
+            FuncionariosDomain funcionarioBuscado = _funcionariosRepository.BuscarPorId(id);
 
-            return StatusCode(204);
+            // Verifica se o funcionário foi encontrado
+            if (funcionarioBuscado != null)
+            {
+                // Caso seja, faz a chamada para o método .Deletar()
+                _funcionariosRepository.Deletar(id);
+
+                // e retorna um status code 200 - Ok com uma mensagem de sucesso
+                return Ok($"O funcionário {id} foi deletado com sucesso!");
+            }
+
+            // Caso não seja, retorna um status code 404 - NotFound com a mensagem
+            return NotFound("Nenhum funcionário encontrado para o identificador informado");
+        }
+
+        /// <summary>
+        /// Lista todos os funcionários através de uma palavra-chave
+        /// </summary>
+        /// <param name="busca">Palavra-chave que será utilizada na busca</param>
+        /// <returns>Retorna uma lista de funcionários encontrados</returns>
+        /// dominio/api/Funcionarios/pesquisar/palavra-chave
+        [HttpGet("buscar/{busca}")]
+        public IActionResult GetByName(string busca)
+        {
+            // Faz a chamada para o método .BuscarPorNome()
+            // Retorna a lista e um status code 200 - Ok
+            return Ok(_funcionariosRepository.BuscarPorNome(busca));
+        }
+
+        /// <summary>
+        /// Lista todos os funcionários com os nomes completos
+        /// </summary>
+        /// <returns>Retorna uma lista de funcionários</returns>
+        /// dominio/api/Funcionarios/nomescompletos
+        [HttpGet("nomescompletos")]
+        public IActionResult GetFullName()
+        {
+            // Faz a chamada para o método .ListarNomeCompleto            
+            // Retorna a lista e um status code 200 - Ok
+            return Ok(_funcionariosRepository.ListarNomeCompleto());
+        }
+
+        /// <summary>
+        /// Lista todos os funcionários de maneira ordenada pelo nome
+        /// </summary>
+        /// <param name="ordem">String que define a ordenação (crescente ou descrescente)</param>
+        /// <returns>Retorna uma lista ordenada de funcionários</returns>
+        /// dominio/api/Funcionarios/ordenacao/asc
+        [HttpGet("ordenacao/{ordem}")]
+        public IActionResult GetOrderBy(string ordem)
+        {
+            // Verifica se a ordenação atende aos requisitos
+            if (ordem != "ASC" && ordem != "DESC")
+            {
+                // Caso não, retorna um status code 404 - BadRequest com uma mensagem de erro
+                return BadRequest("Não é possível ordenar da maneira solicitada. Por favor, ordene por 'ASC' ou 'DESC'");
+            }
+
+            // Retorna a lista ordenada com um status code 200 - OK
+            return Ok(_funcionariosRepository.ListarOrdenado(ordem));
         }
     }
 }
