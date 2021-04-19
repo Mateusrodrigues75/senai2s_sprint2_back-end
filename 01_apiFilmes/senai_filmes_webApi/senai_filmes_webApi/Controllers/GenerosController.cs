@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_filmes_webApi.Domains;
 using senai_filmes_webApi.Interfaces;
@@ -58,6 +59,7 @@ namespace senai_filmes_webApi.Controllers
         /// <param name="id">id do gênero que será buscado</param>
         /// <returns>Um gênero buscado ou notFound caso nenhum gênero seja encontrado</returns>
         /// http://localhost:5000/api/generos/1
+        [Authorize(Roles ="administrador")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
