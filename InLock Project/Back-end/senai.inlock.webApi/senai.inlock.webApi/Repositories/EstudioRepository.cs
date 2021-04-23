@@ -13,7 +13,7 @@ namespace senai.inlock.webApi.Repositories
         /// <summary>
         /// String de conexão com o banco de dados que recebe os parâmetros
         /// </summary>
-        private string stringConexao = "Data Source=DESKTOP-7VJEO6N; initial catalog=M_Peoples; user Id=sa; pwd=Mateus90210";
+        private string stringConexao = "Data Source=DESKTOP-7VJEO6N; initial catalog=inlock_games_manha; user Id=sa; pwd=Mateus90210";
 
         /// <summary>
         /// Atualiza um  existente

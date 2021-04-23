@@ -71,12 +71,29 @@ namespace senai.inlock.webApi.Controllers
         /// </summary>
         /// <param name="id">id do jogo que será deletado</param>
         /// <returns>Um status code Ok - No Content</returns>
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _jogoRepository.Deletar(id);
 
             return Ok($"O Jogo {id} foi deletado com sucesso!");
+        }
+
+        /// <summary>
+        /// Atualiza o Valor do Jogo
+        /// </summary>
+        /// <param name="id">Id do jogo que o valor vai ser alterado</param>
+        /// <param name="NovoValor">Novo Valor do Jogo</param>
+        /// <returns></returns>
+        [Authorize(Roles = "administrador")]
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, JogoDomain NovoValor)
+        {
+            _jogoRepository.AtualizarUrl(id, NovoValor);
+
+            return Ok($"O Valor do Jogo {id} foi atualizado com sucesso!");
+
         }
     }
 }

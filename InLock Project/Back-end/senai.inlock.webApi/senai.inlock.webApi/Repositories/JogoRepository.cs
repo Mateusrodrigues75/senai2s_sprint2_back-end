@@ -13,17 +13,16 @@ namespace senai.inlock.webApi.Repositories
         /// <summary>
         /// String de conexão com o banco de dados que recebe os parâmetros
         /// </summary>
-        private string stringConexao = "Data Source=DESKTOP-7VJEO6N; initial catalog=M_Peoples; user Id=sa; pwd=Mateus90210";
-        public void AtualizarUrl(int id, JogoDomain JogoAtt)
+        private string stringConexao = "Data Source=DESKTOP-7VJEO6N; initial catalog=inlock_games_manha; user Id=sa; pwd=Mateus90210";
+        public void AtualizarUrl(int id, JogoDomain NovoValor)
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryUpdateIdUrl = "UPDATE Jogo SET Descricao = @Descricao, Valor = @Valor WHERE IdJogo = @IdJogo";
+                string queryUpdateIdUrl = "UPDATE Jogo SET Valor = @Valor WHERE IdJogo = @IdJogo";
 
                 using (SqlCommand cmd = new SqlCommand(queryUpdateIdUrl, con))
                 {
-                    cmd.Parameters.AddWithValue("@Descricao", JogoAtt.Descricao);
-                    cmd.Parameters.AddWithValue("@Valor", JogoAtt.Valor);
+                    cmd.Parameters.AddWithValue("@Valor", NovoValor.Valor);
 
                     con.Open();
 
