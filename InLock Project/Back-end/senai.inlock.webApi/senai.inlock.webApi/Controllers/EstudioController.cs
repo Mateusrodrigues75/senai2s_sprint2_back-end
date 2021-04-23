@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interfaces;
 using senai.inlock.webApi.Repositories;
@@ -28,6 +29,7 @@ namespace senai.inlock.webApi.Controllers
         /// Lista todos os Estudios
         /// </summary>
         /// <returns>Status Code Ok</returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -41,6 +43,7 @@ namespace senai.inlock.webApi.Controllers
         /// </summary>
         /// <param name="novoEstudio">Objeto novoEstudio que será cadastrado</param>
         /// <returns>Status code Created</returns>
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(EstudioDomain novoEstudio)
         {

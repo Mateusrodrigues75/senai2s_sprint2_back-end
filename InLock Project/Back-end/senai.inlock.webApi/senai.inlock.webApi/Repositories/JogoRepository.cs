@@ -40,13 +40,14 @@ namespace senai.inlock.webApi.Repositories
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryInsert = "INSERT INTO Jogo(NomeJogo,Descricao,DataLancamento,Valor) VALUES(@NomeJogo,@Descricao,@DataLancamento,@Valor)";
+                string queryInsert = "INSERT INTO Jogo(NomeJogo,Descricao,DataLancamento,Valor,IdEstudio) VALUES(@NomeJogo,@Descricao,@DataLancamento,@Valor, @IdEstudio)";
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
                     cmd.Parameters.AddWithValue("@NomeJogo", NovoJogo.NomeJogo);
                     cmd.Parameters.AddWithValue("@Descricao", NovoJogo.Descricao);
                     cmd.Parameters.AddWithValue("@DataLancamento", NovoJogo.DataLancamento);
                     cmd.Parameters.AddWithValue("@Valor", NovoJogo.Valor);
+                    cmd.Parameters.AddWithValue("@IdEstudio",NovoJogo.Estudio.IdEstudio);
 
                     // Abre a conexão com o banco de dados
                     con.Open();
@@ -112,7 +113,7 @@ namespace senai.inlock.webApi.Repositories
                             NomeJogo = rdr["NomeJogo"].ToString(),
                             Descricao = rdr["Descricao"].ToString(),
                             DataLancamento = Convert.ToDateTime(rdr["DataLancamento"]),
-                            Valor = Convert.ToDouble(rdr["Valor"])
+                            Valor = Convert.ToDecimal(rdr["Valor"])
                         };
 
                         ListaJogos.Add(Jogo);

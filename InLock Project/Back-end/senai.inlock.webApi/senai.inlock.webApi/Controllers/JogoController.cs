@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interfaces;
 using senai.inlock.webApi.Repositories;
@@ -22,6 +23,7 @@ namespace senai.inlock.webApi.Controllers
         /// Lista todos os Jogos cadastrados
         /// </summary>
         /// <returns>Status Code Ok</returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,13 +35,30 @@ namespace senai.inlock.webApi.Controllers
         /// </summary>
         /// <param name="novoJogo">Objeto novoJogo que será cadastrado</param>
         /// <returns>Status code Created</returns>
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
             if (novoJogo.NomeJogo == null)
             {
-                return BadRequest("O nome do novo Estúdio é obrigatório!");
+                return BadRequest("O nome do novo Jogo é obrigatório!");
             }
+
+            if (novoJogo.Descricao == null)
+            {
+                return BadRequest("A descrição é obrigatório!");
+            }
+
+            if (novoJogo.Valor == 0)
+            {
+                return BadRequest("O valor do novo Jogo é obrigatório!");
+            }
+
+            if (novoJogo.Estudio == null)
+            {
+                return BadRequest("O nome do Estúdio que produziu novo Jogo é obrigatório!");
+            }
+
             // Faz a chamada para o método .Cadastrar();
             _jogoRepository.CadastrarJogo(novoJogo);
 
