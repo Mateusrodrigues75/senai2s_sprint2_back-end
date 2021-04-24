@@ -12,8 +12,6 @@ namespace senai.inlock.webApi.Interfaces
 
         List<TipoUsuarioDomain> ListarTipoUsuario();
 
-        void AtualizarUrl(int id, TipoUsuarioDomain TipoUsuarioAtt);
-
         void Deletar(int id);
     }
 }

@@ -12,8 +12,6 @@ namespace senai.inlock.webApi.Interfaces
 
         List<EstudioDomain> ListarEstudios();
 
-        void AtualizarUrl(int id, EstudioDomain EstudioAtt);
-
         void DeletarEstudio(int id);
     }
 }

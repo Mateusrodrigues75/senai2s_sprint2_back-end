@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 
 namespace senai.inlock.webApi.Controllers
 {
+    [Produces("application/json")]
+
+    [Route("api/[controller]")]
+
+    [ApiController]
     public class JogoController : ControllerBase
     {
         private IJogoRepository _jogoRepository { get; set; }
@@ -39,25 +44,7 @@ namespace senai.inlock.webApi.Controllers
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
-            if (novoJogo.NomeJogo == null)
-            {
-                return BadRequest("O nome do novo Jogo é obrigatório!");
-            }
-
-            if (novoJogo.Descricao == null)
-            {
-                return BadRequest("A descrição é obrigatório!");
-            }
-
-            if (novoJogo.Valor == 0)
-            {
-                return BadRequest("O valor do novo Jogo é obrigatório!");
-            }
-
-            if (novoJogo.Estudio == null)
-            {
-                return BadRequest("O nome do Estúdio que produziu novo Jogo é obrigatório!");
-            }
+            //
 
             // Faz a chamada para o método .Cadastrar();
             _jogoRepository.CadastrarJogo(novoJogo);
@@ -78,22 +65,6 @@ namespace senai.inlock.webApi.Controllers
             _jogoRepository.Deletar(id);
 
             return Ok($"O Jogo {id} foi deletado com sucesso!");
-        }
-
-        /// <summary>
-        /// Atualiza o Valor do Jogo
-        /// </summary>
-        /// <param name="id">Id do jogo que o valor vai ser alterado</param>
-        /// <param name="NovoValor">Novo Valor do Jogo</param>
-        /// <returns></returns>
-        [Authorize(Roles = "administrador")]
-        [HttpPatch("{id}")]
-        public IActionResult Patch(int id, JogoDomain NovoValor)
-        {
-            _jogoRepository.AtualizarUrl(id, NovoValor);
-
-            return Ok($"O Valor do Jogo {id} foi atualizado com sucesso!");
-
         }
     }
 }

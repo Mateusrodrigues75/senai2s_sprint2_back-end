@@ -14,25 +14,6 @@ namespace senai.inlock.webApi.Repositories
              /// </summary>
         private string stringConexao = "Data Source=DESKTOP-7VJEO6N; initial catalog=inlock_games_manha; user Id=sa; pwd=Mateus90210";
 
-        public void AtualizarUrl(int id, UsuarioDomain UsuarioAtt)
-        {
-            using (SqlConnection con = new SqlConnection(stringConexao))
-            {
-                string atualizarIdUrl = "UPDATE Usuario SET NomeUsuario = @NomeUsuario, Senha= @SenhaUsuario, Email= @EmailUsuario WHERE IdUsuario = @IdUsuario";
-                using (SqlCommand command = new SqlCommand(atualizarIdUrl, con))
-                {
-                    command.Parameters.AddWithValue("@IdUsuario", id);
-                    command.Parameters.AddWithValue("@NomeUsuario", UsuarioAtt.NomeUsuario);
-                    command.Parameters.AddWithValue("@SenhaUsuario", UsuarioAtt.Senha);
-                    command.Parameters.AddWithValue("@EmailUsuario", UsuarioAtt.Email);
-
-                    con.Open();
-
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
         /// <summary>
         /// Cadastra um usuario
         /// </summary>
@@ -48,7 +29,7 @@ namespace senai.inlock.webApi.Repositories
                     command.Parameters.AddWithValue("@NomeUsuario", NovoUsuario.NomeUsuario);
                     command.Parameters.AddWithValue("@EmailUsuario", NovoUsuario.Email);
                     command.Parameters.AddWithValue("@SenhaUsuario", NovoUsuario.Senha);
-                    command.Parameters.AddWithValue("@IdTipoUsuario", NovoUsuario.TipoUsuario.IdTipoUsuario);
+                    command.Parameters.AddWithValue("@IdTipoUsuario", NovoUsuario.TipoUsuario = new TipoUsuarioDomain());
 
                     con.Open();
 
@@ -116,6 +97,51 @@ namespace senai.inlock.webApi.Repositories
             }
 
             return listaDeUsuario;
+        }
+
+        public UsuarioDomain BuscarPorEmailSenha(string email, string senha)
+        {
+            // Define a conexão con passando a string de conexão
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                // Define o comando a ser executado no banco de dados
+                string querySelect = "SELECT IdUsuario, Email, Senha, IdTipoUsuario FROM Usuario WHERE Email = @Email AND Senha = @Senha;";
+
+                // Define o comando cmd passando a query e a conexão
+                using (SqlCommand cmd = new SqlCommand(querySelect, con))
+                {
+                    // Define os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Senha", senha);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando e armazena os dados no objeto rdr
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    // Caso dados tenham sido obtidos
+                    if (rdr.Read())
+                    {
+                        // Cria um objeto do tipo UsuarioDomain
+                        UsuarioDomain usuarioBuscado = new UsuarioDomain
+                        {
+                            // Atribui às propriedades os valores das colunas do banco de dados
+                            IdUsuario = Convert.ToInt32(rdr[0]),
+                            Email = Convert.ToString(rdr[1]),
+                            Senha = Convert.ToString(rdr[2]),
+                            TipoUsuario = new TipoUsuarioDomain
+                            {
+                                Titulo = Convert.ToString(rdr[3])
+                            }
+                        };
+                        // Retorna o usuário buscado
+                        return usuarioBuscado;
+                    }
+                    // Caso não encontre um email e senha correspondente, retorna null
+                    return null;
+                }
+            }
         }
     }
 }

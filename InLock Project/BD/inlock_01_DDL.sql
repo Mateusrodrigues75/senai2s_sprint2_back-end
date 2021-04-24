@@ -17,7 +17,7 @@ CREATE TABLE Jogo
 	,NomeJogo			VARCHAR(200) NOT NULL
 	,Descricao			VARCHAR(300) NOT NULL
 	,DataLancamento		DATE NOT NULL
-	,Valor				FLOAT NOT NULL
+	,Valor				DECIMAL NOT NULL
 	,IdEstudio			INT  FOREIGN KEY REFERENCES Estudio(IdEstudio)
 );
 GO

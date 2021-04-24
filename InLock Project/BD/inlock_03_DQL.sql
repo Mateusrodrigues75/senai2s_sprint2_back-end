@@ -14,6 +14,7 @@ SELECT NomeJogo, NomeEstudio  FROM Jogo AS J
 INNER JOIN Estudio AS E ON J.IdEstudio = E.IdEstudio;
 GO
 
+
 SELECT NomeEstudio, NomeJogo FROM Estudio AS E
 LEFT JOIN Jogo AS J ON E.IdEstudio = J.IdEstudio;
 GO

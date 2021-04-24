@@ -73,20 +73,5 @@ namespace senai.inlock.webApi.Controllers
             // e retorna um status code 200 - Ok com uma mensagem de sucesso
             return Ok($"O Estúdio {id} foi deletado com sucesso!");
         }
-
-        /// <summary>
-        /// Atualiza um Estúdio existente
-        /// </summary>
-        /// <param name="id">Id do Estudio que vai ser atualizado</param>
-        /// <param name="EstudioAtt">Objeto com informações do Estudio Atualizado</param>
-        /// <returns>Status Code Ok </returns>
-        [Authorize(Roles = "administrador")]
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, EstudioDomain EstudioAtt)
-        {
-            _estudioRepository.AtualizarUrl(id, EstudioAtt);
-
-            return Ok($"O Estúdio {id} foi atualizado com sucesso!");
-        }
     }
 }

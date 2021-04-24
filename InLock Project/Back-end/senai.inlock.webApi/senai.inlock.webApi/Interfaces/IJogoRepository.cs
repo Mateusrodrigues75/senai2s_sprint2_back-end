@@ -12,8 +12,6 @@ namespace senai.inlock.webApi.Interfaces
 
         List<JogoDomain> ListarJogos();
 
-        void AtualizarUrl(int id, JogoDomain JogoAtt);
-
         void Deletar(int id);
     }
 }
