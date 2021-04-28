@@ -61,3 +61,5 @@ C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.h
 C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.hroads.webapi\senai.hroads.webapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.hroads.webapi\senai.hroads.webapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.hroads.webapi\senai.hroads.webapi\obj\Debug\net5.0\senai.hroads.webapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.hroads.webapi\senai.hroads.webapi\bin\Debug\net5.0\senai.hroads.webapi.xml
+C:\Users\mrodr\Documents\GitHub\senai2s_sprint2_back-end\HROADS\Back-end\senai.hroads.webapi\senai.hroads.webapi\obj\Debug\net5.0\senai.hroads.webapi.xml

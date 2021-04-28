@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.hroads.webapi</name>
+    </assembly>
+    <members>
+        <member name="T:senai.hroads.webapi.Repositories.ClasseRepository">
+            <summary>
+            Classe responsável pelo Repositório das Classes
+            </summary>
+        </member>
+        <member name="F:senai.hroads.webapi.Repositories.ClasseRepository.ctx">
+            <summary>
+            Objeto Contexto por onde serão chamados os Métodos do EF Core
+            </summary>
+        </member>
+    </members>
+</doc>
