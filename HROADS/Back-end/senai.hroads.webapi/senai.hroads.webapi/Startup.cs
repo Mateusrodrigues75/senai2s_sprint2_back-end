@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,52 +21,61 @@ namespace senai.hroads.webapi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "hroads.webApi", Version = "v1" });
-
-                // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
-
             services
-                .AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = "JwtBearer";
-                    options.DefaultChallengeScheme = "JwtBearer";
-                })
+                .AddControllers()
 
-            .AddJwtBearer("JwtBearer", options =>
-             {
-                 options.TokenValidationParameters = new TokenValidationParameters
+                .AddNewtonsoftJson(options =>
                  {
-                    //Quem emitiu
-                    ValidateIssuer = true,
+                     // Ignora os loopings nas consultas
+                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                     // Ignora valores nulos ao fazer junções nas consultas
+                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                 });
 
-                    //Quem recebeu
-                    ValidateAudience = true,
+                // Register the Swagger generator, defining 1 or more Swagger documents
+                services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "hroads.webApi", Version = "v1" });
 
-                    //Tempo de expiracao sera validado
-                    ValidateLifetime = true,
+                    // Set the comments path for the Swagger JSON and UI.
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    c.IncludeXmlComments(xmlPath);
+                });
 
-                    //Forma de criptografia e chave de autenticacao
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Usuario-Login-Autenticacao")),
+                services
+                    .AddAuthentication(options =>
+                    {
+                        options.DefaultAuthenticateScheme = "JwtBearer";
+                        options.DefaultChallengeScheme = "JwtBearer";
+                    })
 
-                    //Valida o tempo de expiracao do token
-                    ClockSkew = TimeSpan.FromMinutes(30),
+                .AddJwtBearer("JwtBearer", options =>
+                 {
+                     options.TokenValidationParameters = new TokenValidationParameters
+                     {
+                        //Quem emitiu
+                        ValidateIssuer = true,
 
-                    //Nome de quem emitiu
-                    ValidIssuer = "hroads.webApi",
+                        //Quem recebeu
+                        ValidateAudience = true,
 
-                    //Nome de quem recebeu
-                    ValidAudience = "hroads.webApi"
-                 };
-             });
+                        //Tempo de expiracao sera validado
+                        ValidateLifetime = true,
+
+                        //Forma de criptografia e chave de autenticacao
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Usuario-Login-Autenticacao")),
+
+                        //Valida o tempo de expiracao do token
+                        ClockSkew = TimeSpan.FromMinutes(30),
+
+                        //Nome de quem emitiu
+                        ValidIssuer = "hroads.webApi",
+
+                        //Nome de quem recebeu
+                        ValidAudience = "hroads.webApi"
+                     };
+                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
