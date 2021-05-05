@@ -9079,19 +9079,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mrodr\\.nuget\\packages\\": {}
+    "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\Desktop\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi.csproj",
       "projectName": "senai.spmedicalgroup.webapi",
-      "projectPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi.csproj",
-      "packagesPath": "C:\\Users\\mrodr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\obj\\",
+      "projectPath": "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\Desktop\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi.csproj",
+      "packagesPath": "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\Desktop\\senai2s_sprint2_back-end\\Project_SPMedicalGroup\\Back-end\\senai.spmedicalgroup.webapi\\senai.spmedicalgroup.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mrodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mrodr.LAPTOP-DFNK1JF6\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

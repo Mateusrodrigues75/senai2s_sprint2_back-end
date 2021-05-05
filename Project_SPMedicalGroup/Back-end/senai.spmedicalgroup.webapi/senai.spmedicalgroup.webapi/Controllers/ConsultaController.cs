@@ -87,7 +87,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="SituacaoAtt">Objeto com a situação da consulta atualizada</param>
         /// <returns>Status Code 204</returns>
         [HttpPatch("{id}")]
-        public IActionResult PatchSituacao(int id, Consulta SituacaoAtt)
+        public IActionResult PatchSituacao(int id, string SituacaoAtt)
         {
             _consultaRepository.AtualizarSituacao(id, SituacaoAtt);
 
@@ -101,7 +101,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="DescricaoAtt"></param>
         /// <returns></returns>
         [HttpPatch("{id}")]
-        public IActionResult PatchDescricao(int id, Consulta DescricaoAtt)
+        public IActionResult PatchDescricao(int id, string DescricaoAtt)
         {
             _consultaRepository.AtualizarDescricao(id, DescricaoAtt);
 

@@ -29,7 +29,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <summary>
         /// Valida o usuário
         /// </summary>
-        /// <param name="login">Objeto login com o e-mail e a senha do usuário</param>
+        /// <param name="Login">Objeto login com o e-mail e a senha do usuário</param>
         /// <returns>Token com as informações do usuário</returns>
         /// dominio/api/Login
         [HttpPost]

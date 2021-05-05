@@ -45,13 +45,13 @@ namespace senai.spmedicalgroup.webapi.Interfaces
         /// </summary>
         /// <param name="id">Id da consulta que sua situação será atualizada</param>
         /// <param name="SituacaoAtt">Objeto com Situação atualizada</param>
-        public void AtualizarSituacao(int id, Consulta SituacaoAtt);
+        public void AtualizarSituacao(int id, string SituacaoAtt);
 
         /// <summary>
         /// Atualiza a descricao da Consulta
         /// </summary>
         /// <param name="id">Id da consulta que sua descrição será atualizada</param>
         /// <param name="DescricaoAtt">Objeto Descricao com a descrição com novas informações</param>
-        public void AtualizarDescricao(int id, Consulta DescricaoAtt);
+        public void AtualizarDescricao(int id, string DescricaoAtt);
     }
 }
