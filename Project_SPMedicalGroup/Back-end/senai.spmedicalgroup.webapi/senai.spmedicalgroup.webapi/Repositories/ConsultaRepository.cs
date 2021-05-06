@@ -110,18 +110,17 @@ namespace senai.spmedicalgroup.webapi.Repositories
         /// <summary>
         /// Lista as consultas que o Médico irá atender
         /// </summary>
-        /// <param name="id">Id do Médico</param>
         /// <returns>Lista com as consultas que o medico irá atender</returns>
-        public List<Consulta> ListarConsultasMedico(int id)
+        public List<Consulta> ListarConsultasMedico()
         {
-           return ctx.Consultas.Include(c => c.Medicos).ToList();
+            return ctx.Consultas.Include(c => c.Medicos).ToList();
         }
+
         /// <summary>
         /// Lista as consultas que o paciente agendou
         /// </summary>
-        /// <param name="id">Id do Paciente</param>
         /// <returns>Lista com as consultas do paciente</returns>
-        public List<Consulta> ListarConsultasPaciente(int id)
+        public List<Consulta> ListarConsultasPaciente()
         {
             return ctx.Consultas.Include(c => c.Prontuarios).ToList();
         }

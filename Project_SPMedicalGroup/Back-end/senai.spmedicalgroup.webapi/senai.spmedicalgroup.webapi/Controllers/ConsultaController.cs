@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace senai.spmedicalgroup.webapi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ConsultaController : ControllerBase
     {
@@ -103,7 +103,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da consulta que terá a descrição atualizada</param>
         /// <param name="DescricaoAtt"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Médico")]
         [HttpPatch("{id}")]
         public IActionResult PatchDescricao(int id, string DescricaoAtt)
         {
@@ -115,25 +115,23 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <summary>
         /// Lista as Consultas que o Médico irá atender
         /// </summary>
-        /// <param name="id">Id do Médico</param>
         /// <returns>Status Code Ok com Lista de consultas</returns>
-        [Authorize(Roles = "Medico")]
-        [HttpGet("{id}")]
-        public IActionResult ListarConsultasMedico(int id)
+        [Authorize(Roles = "2")]
+        [HttpGet("consultasmedicos")]
+        public IActionResult ListarConsultasMedico()
         {
-            return Ok(_consultaRepository.ListarConsultasMedico(id));
+            return Ok(_consultaRepository.ListarConsultasMedico());
         }
 
         /// <summary>
         /// Lista Consultas que o paciente agendou
         /// </summary>
-        /// <param name="id">Id do prontuario</param>
         /// <returns>Status Code Ok com Lista de consultas</returns>
-        [Authorize]
-        [HttpGet("{id}")]
-        public IActionResult ListarConsultasPaciente(int id)
+        //[Authorize]
+        [HttpGet("consultas_pacientes")]
+        public IActionResult ListarConsultasPaciente()
         {
-            return Ok(_consultaRepository.ListarConsultasPaciente(id));
+            return Ok(_consultaRepository.ListarConsultasPaciente());
         }
     }
 }

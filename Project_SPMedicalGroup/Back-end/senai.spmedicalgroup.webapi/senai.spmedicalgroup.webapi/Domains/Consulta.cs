@@ -14,9 +14,6 @@ namespace senai.spmedicalgroup.webapi.Domains
         public string Situacao { get; set; }
         public string Descricao { get; set; }
 
-        public virtual ICollection<Medico> Medicos { get; set; }
-        public virtual ICollection<Prontuario> Prontuarios { get; set; }
-
         public virtual Medico IdMedicoNavigation { get; set; }
         public virtual Prontuario IdProntuarioNavigation { get; set; }
     }

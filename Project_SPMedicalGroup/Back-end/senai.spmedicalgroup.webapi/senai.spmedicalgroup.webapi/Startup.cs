@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
@@ -47,11 +48,10 @@ namespace senai.spmedicalgroup.webapi
                     options.DefaultAuthenticateScheme = "JwtBearer";
                     options.DefaultChallengeScheme = "JwtBearer";
                 })
-
-            .AddJwtBearer("JwtBearer", options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
+                .AddJwtBearer("JwtBearer", options =>
                 {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
                         //Quem emitiu
                         ValidateIssuer = true,
 
@@ -62,7 +62,7 @@ namespace senai.spmedicalgroup.webapi
                         ValidateLifetime = true,
 
                         //Forma de criptografia e chave de autenticacao
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Usuario-Login-Autenticacao")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("spmedicalgroup-autenticacao")),
 
                         //Valida o tempo de expiracao do token
                         ClockSkew = TimeSpan.FromMinutes(30),
@@ -72,8 +72,8 @@ namespace senai.spmedicalgroup.webapi
 
                         //Nome de quem recebeu
                         ValidAudience = "spmedicalgroup.webApi"
-                };
-            });
+                    };
+                });           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

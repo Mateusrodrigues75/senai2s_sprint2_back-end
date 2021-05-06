@@ -1,4 +1,5 @@
-﻿using senai.spmedicalgroup.webapi.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.spmedicalgroup.webapi.Contexts;
 using senai.spmedicalgroup.webapi.Domains;
 using senai.spmedicalgroup.webapi.Interfaces;
 using System;

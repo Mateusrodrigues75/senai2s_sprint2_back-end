@@ -57,11 +57,11 @@ namespace senai.spmedicalgroup.webapi.Interfaces
         /// Lista das consultas associadas ao id Passado na URL
         /// </summary>
         /// <returns>Lista das consultas</returns>
-        List<Consulta> ListarConsultasMedico(int id);
+        List<Consulta> ListarConsultasMedico();
         /// <summary>
         /// Lista das consultas associadas ao id Passado na URL
         /// </summary>
         /// <returns>Lista das consultas</returns>
-        List<Consulta> ListarConsultasPaciente(int id);
+        List<Consulta> ListarConsultasPaciente();
     }
 }

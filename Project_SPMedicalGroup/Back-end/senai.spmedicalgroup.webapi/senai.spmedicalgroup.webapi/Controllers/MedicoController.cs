@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.spmedicalgroup.webapi.Domains;
 using senai.spmedicalgroup.webapi.Interfaces;
 using senai.spmedicalgroup.webapi.Repositories;
@@ -25,6 +26,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// Lista com os médico cadastrados no SPMedicalGroup
         /// </summary>
         /// <returns>StatusCode Ok com lista dos Médicos</returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,6 +38,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do médico que será buscado</param>
         /// <returns>Status Code Ok com Médico Buscado</returns>
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -47,6 +50,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovoMedico">Objeto com os dados do Novo Médico</param>
         /// <returns>Status Code 201</returns>
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(Medico NovoMedico)
         {
@@ -61,6 +65,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id do Médico que será atualizado</param>
         /// <param name="MedicoAtt">Objeto com os novos dados do Médico</param>
         /// <returns></returns>
+        [Authorize(Roles = "Administrador")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Medico MedicoAtt)
         {
@@ -73,12 +78,15 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do médico que será deletado</param>
         /// <returns>Status Code 204</returns>
+        [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _medicoRepository.Deletar(id);
             return StatusCode(204);
         }
+
+
 
 
     }

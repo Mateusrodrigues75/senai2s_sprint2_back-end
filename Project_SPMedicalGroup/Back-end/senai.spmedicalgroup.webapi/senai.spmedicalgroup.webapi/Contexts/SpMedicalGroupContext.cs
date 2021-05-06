@@ -76,7 +76,7 @@ namespace senai.spmedicalgroup.webapi.Contexts
             modelBuilder.Entity<Consulta>(entity =>
             {
                 entity.HasKey(e => e.IdConsulta)
-                    .HasName("PK__consulta__CA9C61F5DAC72F22");
+                    .HasName("PK__consulta__CA9C61F533A00460");
 
                 entity.ToTable("consultas");
 
@@ -85,6 +85,11 @@ namespace senai.spmedicalgroup.webapi.Contexts
                 entity.Property(e => e.DataConsulta)
                     .HasColumnType("datetime")
                     .HasColumnName("dataConsulta");
+
+                entity.Property(e => e.Descricao)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("descricao");
 
                 entity.Property(e => e.IdMedico).HasColumnName("idMedico");
 
@@ -96,20 +101,15 @@ namespace senai.spmedicalgroup.webapi.Contexts
                     .IsUnicode(false)
                     .HasColumnName("situacao");
 
-                entity.Property(e => e.Descricao)
-                    .IsUnicode(false)
-                    .HasMaxLength(255)
-                    .HasColumnName("descricao");
-
                 entity.HasOne(d => d.IdMedicoNavigation)
                     .WithMany(p => p.Consulta)
                     .HasForeignKey(d => d.IdMedico)
-                    .HasConstraintName("FK__consultas__idMed__35BCFE0A");
+                    .HasConstraintName("FK__consultas__idMed__5DCAEF64");
 
                 entity.HasOne(d => d.IdProntuarioNavigation)
                     .WithMany(p => p.Consulta)
                     .HasForeignKey(d => d.IdProntuario)
-                    .HasConstraintName("FK__consultas__idPro__34C8D9D1");
+                    .HasConstraintName("FK__consultas__idPro__5CD6CB2B");
             });
 
             modelBuilder.Entity<Especialidade>(entity =>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Documents;
 using senai.spmedicalgroup.webapi.Domains;
 using senai.spmedicalgroup.webapi.Interfaces;
 using senai.spmedicalgroup.webapi.Repositories;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Providers.Entities;
 
 namespace senai.spmedicalgroup.webapi.Controllers
 {
@@ -26,7 +28,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// Lista todas as clinicas do SPMedicalGroup
         /// </summary>
         /// <returns>Status Code Ok com lista das clinicas cadastradas</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -38,7 +40,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da clinica que será buscada</param>
         /// <returns>Status Code Ok com clinica Buscada</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -50,7 +52,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovaClinica">Objeto NovaClinica com os dados da clinica que será cadastrada</param>
         /// <returns>Status Code 201</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles="1")]
         [HttpPost]
         public IActionResult Post(Clinica NovaClinica)
         {
@@ -64,7 +66,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da clinica que será atualizada</param>
         /// <param name="NovaClinica">Objeto NovaClinica que contém os novos dados da clinica </param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Clinica NovaClinica)
         {
@@ -80,7 +82,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da clinica que será deletada</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
