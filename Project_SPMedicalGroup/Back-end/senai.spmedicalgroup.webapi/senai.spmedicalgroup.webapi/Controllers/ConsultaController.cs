@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.spmedicalgroup.webapi.Domains;
 using senai.spmedicalgroup.webapi.Interfaces;
 using senai.spmedicalgroup.webapi.Repositories;
@@ -47,6 +48,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovaConsulta">Objeto com os dados da nova Consulta</param>
         /// <returns>Status Code 201</returns>
+        [Authorize(Roles ="Administrador")]
         [HttpPost]
         public IActionResult Post(Consulta NovaConsulta)
         {
@@ -86,6 +88,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da consulta que terá a Situação Atualizada</param>
         /// <param name="SituacaoAtt">Objeto com a situação da consulta atualizada</param>
         /// <returns>Status Code 204</returns>
+        [Authorize(Roles = "Administrador")]
         [HttpPatch("{id}")]
         public IActionResult PatchSituacao(int id, string SituacaoAtt)
         {
@@ -100,12 +103,37 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da consulta que terá a descrição atualizada</param>
         /// <param name="DescricaoAtt"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Medico")]
         [HttpPatch("{id}")]
         public IActionResult PatchDescricao(int id, string DescricaoAtt)
         {
             _consultaRepository.AtualizarDescricao(id, DescricaoAtt);
 
             return StatusCode(204);
+        }
+
+        /// <summary>
+        /// Lista as Consultas que o Médico irá atender
+        /// </summary>
+        /// <param name="id">Id do Médico</param>
+        /// <returns>Status Code Ok com Lista de consultas</returns>
+        [Authorize(Roles = "Medico")]
+        [HttpGet("{id}")]
+        public IActionResult ListarConsultasMedico(int id)
+        {
+            return Ok(_consultaRepository.ListarConsultasMedico(id));
+        }
+
+        /// <summary>
+        /// Lista Consultas que o paciente agendou
+        /// </summary>
+        /// <param name="id">Id do prontuario</param>
+        /// <returns>Status Code Ok com Lista de consultas</returns>
+        [Authorize]
+        [HttpGet("{id}")]
+        public IActionResult ListarConsultasPaciente(int id)
+        {
+            return Ok(_consultaRepository.ListarConsultasPaciente(id));
         }
     }
 }

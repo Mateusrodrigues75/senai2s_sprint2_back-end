@@ -79,5 +79,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
             _medicoRepository.Deletar(id);
             return StatusCode(204);
         }
+
+
     }
 }
