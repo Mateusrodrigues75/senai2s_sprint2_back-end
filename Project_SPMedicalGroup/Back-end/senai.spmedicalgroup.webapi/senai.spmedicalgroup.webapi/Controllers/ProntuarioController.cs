@@ -26,7 +26,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// Lista todos os Prontuarios cadastrados
         /// </summary>
         /// <returns>Status Code Ok com lista de Prontuarios</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -38,7 +38,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do Prontuario que será buscado</param>
         /// <returns>status Code Ok com Protuario buscado</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetbyId(int id)
         {
@@ -50,7 +50,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovoProntuario">Objeto com os dados do paciente</param>
         /// <returns>Status Code 201</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Prontuario NovoProntuario)
         {
@@ -65,7 +65,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">id do Prontuario que será atualizado</param>
         /// <param name="ProntuarioAtt">Objeto com os novos dados do paciente</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Prontuario ProntuarioAtt)
         {
@@ -79,7 +79,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do prontuario que será deletado</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

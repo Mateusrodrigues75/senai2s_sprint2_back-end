@@ -48,7 +48,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="novoUsuario">Objeto novoUsuario que contém as informações do usuário que será cadastrado</param>
         /// <returns>Status Code 201</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Usuario novoUsuario)
         {
@@ -64,7 +64,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id do Usuário que será atualizado</param>
         /// <param name="usuarioAtualizado">Objeto usuarioAtualizado com as novas informações do Usuário</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuarioAtualizado)
         {
@@ -78,7 +78,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do Usuário que será deletado</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

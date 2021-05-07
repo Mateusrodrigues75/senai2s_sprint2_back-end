@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.spmedicalgroup.webapi.Domains;
 using senai.spmedicalgroup.webapi.Interfaces;
 using senai.spmedicalgroup.webapi.Repositories;
@@ -36,6 +37,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da especialidade que será Buscada</param>
         /// <returns>Status Code Ok com a especialidade buscada</returns>
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -47,6 +49,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovaEspecialidade">Objeto com os dados da especialidade</param>
         /// <returns>Status Code 201</returns>
+        [Authorize(Roles ="1")]
         [HttpPost]
         public IActionResult Post(Especialidade NovaEspecialidade)
         {
@@ -60,6 +63,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da especialidade que será atualizada</param>
         /// <param name="EspecialidadeAtt">Objeto com os novos dados da Especialidade</param>
         /// <returns>Status Code 204</returns>
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Especialidade EspecialidadeAtt)
         {
@@ -73,6 +77,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da especialidade que será deletda</param>
         /// <returns></returns>
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

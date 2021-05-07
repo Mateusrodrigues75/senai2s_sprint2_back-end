@@ -50,7 +50,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovoMedico">Objeto com os dados do Novo Médico</param>
         /// <returns>Status Code 201</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Medico NovoMedico)
         {
@@ -65,7 +65,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id do Médico que será atualizado</param>
         /// <param name="MedicoAtt">Objeto com os novos dados do Médico</param>
         /// <returns></returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Medico MedicoAtt)
         {
@@ -78,7 +78,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do médico que será deletado</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

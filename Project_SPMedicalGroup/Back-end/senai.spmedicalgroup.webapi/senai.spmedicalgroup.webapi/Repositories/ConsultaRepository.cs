@@ -111,43 +111,43 @@ namespace senai.spmedicalgroup.webapi.Repositories
         /// Lista as consultas associadas ao id passado no token jwt
         /// </summary>
         /// <returns>Lista com as consultas</returns>
-        public List<Consulta> ListarConsultasMedico(int id)
+        public List<Consulta> ListarMinhasConsultas(int id)
         {
             return ctx.Consultas
-                .Include(c => c.IdProntuarioNavigation)
-                .Include(c => c.IdMedicoNavigation)
-                .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
-                .Select(c => new Consulta
-                {
-                    IdConsulta = c.IdConsulta,
-                    DataConsulta = c.DataConsulta,
-                    Descricao = c.Descricao,
+                 .Include(c => c.IdProntuarioNavigation)
+                 .Include(c => c.IdMedicoNavigation)
+                 .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+                 /*.Select(c => new Consulta
+                 {
+                     IdConsulta = c.IdConsulta,
+                     DataConsulta = c.DataConsulta,
+                     Descricao = c.Descricao,
 
-                    IdProntuarioNavigation = new Prontuario
-                    {
-                        IdProntuario = c.IdProntuarioNavigation.IdProntuario,
-                        IdUsuario = c.IdProntuarioNavigation.IdUsuario,
-                        NomePaciente = c.IdProntuarioNavigation.NomePaciente,
-                    },
+                     IdProntuarioNavigation = new Prontuario
+                     {
+                         IdProntuario = c.IdProntuarioNavigation.IdProntuario,
+                         IdUsuario = c.IdProntuarioNavigation.IdUsuario,
+                         NomePaciente = c.IdProntuarioNavigation.NomePaciente,
+                     },
 
-                    IdMedicoNavigation = new Medico
-                    {
-                        IdMedico = c.IdMedicoNavigation.IdMedico,
-                        NomeMedico = c.IdMedicoNavigation.NomeMedico,
-                        Crm = c.IdMedicoNavigation.Crm,
+                     IdMedicoNavigation = new Medico
+                     {
+                         IdMedico = c.IdMedicoNavigation.IdMedico,
+                         NomeMedico = c.IdMedicoNavigation.NomeMedico,
+                         Crm = c.IdMedicoNavigation.Crm,
 
-                        IdEspecialidadeNavigation = new Especialidade
-                        {
-                            IdEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.IdEspecialidade,
-                            NomeEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.NomeEspecialidade
-                        }
-                    },
+                         IdEspecialidadeNavigation = new Especialidade
+                         {
+                             IdEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.IdEspecialidade,
+                             NomeEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.NomeEspecialidade
+                         }
+                     },
 
 
-                })
+                 })*/
 
-                .Where(c => c.IdProntuarioNavigation.IdUsuario == id || c.IdMedicoNavigation.IdUsuario == id)
-                .ToList();
+                 .Where(c => c.IdProntuarioNavigation.IdUsuario == id || c.IdMedicoNavigation.IdUsuario == id)
+                 .ToList();
         }
     }
 }

@@ -90,17 +90,11 @@
             <param name="DescricaoAtt"></param>
             <returns></returns>
         </member>
-        <member name="M:senai.spmedicalgroup.webapi.Controllers.ConsultaController.ListarConsultasMedico">
+        <member name="M:senai.spmedicalgroup.webapi.Controllers.ConsultaController.MinhasConsultas">
             <summary>
-            Lista as Consultas que o Médico irá atender
+            Lista das consultas associadas ao id Passado no token jwt
             </summary>
-            <returns>Status Code Ok com Lista de consultas</returns>
-        </member>
-        <member name="M:senai.spmedicalgroup.webapi.Controllers.ConsultaController.ListarConsultasPaciente">
-            <summary>
-            Lista Consultas que o paciente agendou
-            </summary>
-            <returns>Status Code Ok com Lista de consultas</returns>
+            <returns>Lista das consultas</returns>
         </member>
         <member name="M:senai.spmedicalgroup.webapi.Controllers.EspecialidadeController.Get">
             <summary>
@@ -363,15 +357,9 @@
             <param name="id">Id da consulta que sua descrição será atualizada</param>
             <param name="DescricaoAtt">Objeto Descricao com a descrição com novas informações</param>
         </member>
-        <member name="M:senai.spmedicalgroup.webapi.Interfaces.IConsultaRepository.ListarConsultasMedico">
+        <member name="M:senai.spmedicalgroup.webapi.Interfaces.IConsultaRepository.ListarMinhasConsultas(System.Int32)">
             <summary>
-            Lista das consultas associadas ao id Passado na URL
-            </summary>
-            <returns>Lista das consultas</returns>
-        </member>
-        <member name="M:senai.spmedicalgroup.webapi.Interfaces.IConsultaRepository.ListarConsultasPaciente">
-            <summary>
-            Lista das consultas associadas ao id Passado na URL
+            Lista das consultas associadas ao id Passado no token jwt
             </summary>
             <returns>Lista das consultas</returns>
         </member>
@@ -629,17 +617,11 @@
             <param name="id">Id da consulta que sua descrição será atualizada</param>
             <param name="DescricaoAtt">Objeto Descricao com a descrição com novas informações</param>
         </member>
-        <member name="M:senai.spmedicalgroup.webapi.Repositories.ConsultaRepository.ListarConsultasMedico">
+        <member name="M:senai.spmedicalgroup.webapi.Repositories.ConsultaRepository.ListarMinhasConsultas(System.Int32)">
             <summary>
-            Lista as consultas que o Médico irá atender
+            Lista as consultas associadas ao id passado no token jwt
             </summary>
-            <returns>Lista com as consultas que o medico irá atender</returns>
-        </member>
-        <member name="M:senai.spmedicalgroup.webapi.Repositories.ConsultaRepository.ListarConsultasPaciente">
-            <summary>
-            Lista as consultas que o paciente agendou
-            </summary>
-            <returns>Lista com as consultas do paciente</returns>
+            <returns>Lista com as consultas</returns>
         </member>
         <member name="F:senai.spmedicalgroup.webapi.Repositories.EspecialidadeRepository.ctx">
             <summary>

@@ -5,6 +5,7 @@ using senai.spmedicalgroup.webapi.Interfaces;
 using senai.spmedicalgroup.webapi.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -119,11 +120,26 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// Lista das consultas associadas ao id Passado no token jwt
         /// </summary>
         /// <returns>Lista das consultas</returns>
-        [Authorize(Roles = "2")]
-        [HttpGet("consultasmedicos")]
-        public IActionResult ListarConsultasMedico(int id)
+        [Authorize(Roles = "2,3")]
+        [HttpGet("minhasconsultas")]
+        public IActionResult MinhasConsultas()
         {
-            return Ok(_consultaRepository.ListarMinhasConsultas(id));
+            try
+            {
+                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                return Ok(_consultaRepository.ListarMinhasConsultas(idUsuario));
+
+
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não é possível mostrar as consultas se o usuário não estiver logado!",
+                    erro
+                });
+            }
         }
     }
 }
