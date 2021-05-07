@@ -122,16 +122,7 @@
 					"response": []
 				},
 				{
-					"name": "ConsultasMedicos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
-					},
-					"response": []
-				},
-				{
-					"name": "ConsultasPacientes",
+					"name": "MinhasConsultas",
 					"request": {
 						"method": "GET",
 						"header": [],
