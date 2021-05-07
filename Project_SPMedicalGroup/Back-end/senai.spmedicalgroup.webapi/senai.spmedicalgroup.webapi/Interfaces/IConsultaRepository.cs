@@ -54,14 +54,10 @@ namespace senai.spmedicalgroup.webapi.Interfaces
         /// <param name="DescricaoAtt">Objeto Descricao com a descrição com novas informações</param>
         public void AtualizarDescricao(int id, string DescricaoAtt);
         /// <summary>
-        /// Lista das consultas associadas ao id Passado na URL
+        /// Lista das consultas associadas ao id Passado no token jwt
         /// </summary>
         /// <returns>Lista das consultas</returns>
-        List<Consulta> ListarConsultasMedico();
-        /// <summary>
-        /// Lista das consultas associadas ao id Passado na URL
-        /// </summary>
-        /// <returns>Lista das consultas</returns>
-        List<Consulta> ListarConsultasPaciente();
+        List<Consulta> ListarMinhasConsultas(int id);
+
     }
 }

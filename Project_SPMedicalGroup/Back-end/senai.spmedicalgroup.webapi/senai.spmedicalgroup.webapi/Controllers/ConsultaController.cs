@@ -37,6 +37,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da consulta que será buscada</param>
         /// <returns>Status Code Ok com a consulta Buscada</returns>
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -48,7 +49,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="NovaConsulta">Objeto com os dados da nova Consulta</param>
         /// <returns>Status Code 201</returns>
-        [Authorize(Roles ="Administrador")]
+        [Authorize(Roles ="1")]
         [HttpPost]
         public IActionResult Post(Consulta NovaConsulta)
         {
@@ -62,6 +63,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da Consulta que será atualizada</param>
         /// <param name="ConsultaAtt">Objeto com os novos dados da consulta</param>
         /// <returns>Status Code 204</returns>
+        [Authorize(Roles ="1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Consulta ConsultaAtt)
         {
@@ -74,6 +76,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// </summary>
         /// <param name="id">Id da cinsulta que será deletada</param>
         /// <returns>Status Code 204</returns>
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -88,7 +91,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da consulta que terá a Situação Atualizada</param>
         /// <param name="SituacaoAtt">Objeto com a situação da consulta atualizada</param>
         /// <returns>Status Code 204</returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "1")]
         [HttpPatch("{id}")]
         public IActionResult PatchSituacao(int id, string SituacaoAtt)
         {
@@ -103,7 +106,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="id">Id da consulta que terá a descrição atualizada</param>
         /// <param name="DescricaoAtt"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Médico")]
+        [Authorize(Roles = "2")]
         [HttpPatch("{id}")]
         public IActionResult PatchDescricao(int id, string DescricaoAtt)
         {
@@ -113,25 +116,14 @@ namespace senai.spmedicalgroup.webapi.Controllers
         }
 
         /// <summary>
-        /// Lista as Consultas que o Médico irá atender
+        /// Lista das consultas associadas ao id Passado no token jwt
         /// </summary>
-        /// <returns>Status Code Ok com Lista de consultas</returns>
+        /// <returns>Lista das consultas</returns>
         [Authorize(Roles = "2")]
         [HttpGet("consultasmedicos")]
-        public IActionResult ListarConsultasMedico()
+        public IActionResult ListarConsultasMedico(int id)
         {
-            return Ok(_consultaRepository.ListarConsultasMedico());
-        }
-
-        /// <summary>
-        /// Lista Consultas que o paciente agendou
-        /// </summary>
-        /// <returns>Status Code Ok com Lista de consultas</returns>
-        //[Authorize]
-        [HttpGet("consultas_pacientes")]
-        public IActionResult ListarConsultasPaciente()
-        {
-            return Ok(_consultaRepository.ListarConsultasPaciente());
+            return Ok(_consultaRepository.ListarMinhasConsultas(id));
         }
     }
 }
