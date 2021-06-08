@@ -117,34 +117,6 @@ namespace senai.spmedicalgroup.webapi.Repositories
                  .Include(c => c.IdProntuarioNavigation)
                  .Include(c => c.IdMedicoNavigation)
                  .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
-                 /*.Select(c => new Consulta
-                 {
-                     IdConsulta = c.IdConsulta,
-                     DataConsulta = c.DataConsulta,
-                     Descricao = c.Descricao,
-
-                     IdProntuarioNavigation = new Prontuario
-                     {
-                         IdProntuario = c.IdProntuarioNavigation.IdProntuario,
-                         IdUsuario = c.IdProntuarioNavigation.IdUsuario,
-                         NomePaciente = c.IdProntuarioNavigation.NomePaciente,
-                     },
-
-                     IdMedicoNavigation = new Medico
-                     {
-                         IdMedico = c.IdMedicoNavigation.IdMedico,
-                         NomeMedico = c.IdMedicoNavigation.NomeMedico,
-                         Crm = c.IdMedicoNavigation.Crm,
-
-                         IdEspecialidadeNavigation = new Especialidade
-                         {
-                             IdEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.IdEspecialidade,
-                             NomeEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.NomeEspecialidade
-                         }
-                     },
-
-
-                 })*/
 
                  .Where(c => c.IdProntuarioNavigation.IdUsuario == id || c.IdMedicoNavigation.IdUsuario == id)
                  .ToList();
