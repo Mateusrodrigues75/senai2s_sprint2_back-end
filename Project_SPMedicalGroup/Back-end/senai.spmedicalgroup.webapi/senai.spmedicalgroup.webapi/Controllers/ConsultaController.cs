@@ -108,7 +108,7 @@ namespace senai.spmedicalgroup.webapi.Controllers
         /// <param name="DescricaoAtt"></param>
         /// <returns></returns>
         [Authorize(Roles = "2")]
-        [HttpPatch("{id}")]
+        [HttpPatch("/attdescricao{id}")]
         public IActionResult PatchDescricao(int id, string DescricaoAtt)
         {
             _consultaRepository.AtualizarDescricao(id, DescricaoAtt);
