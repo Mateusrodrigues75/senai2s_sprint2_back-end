@@ -74,7 +74,11 @@ namespace senai.spmedicalgroup.webapi.Repositories
         /// <returns>Lista com as clinicas</returns>
         public List<Consulta> Listar()
         {
-            return ctx.Consultas.ToList();
+            return ctx.Consultas
+                 .Include(c => c.IdProntuarioNavigation)
+                 .Include(c => c.IdMedicoNavigation)
+                 .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+                 .ToList();
         }
 
         /// <summary>
