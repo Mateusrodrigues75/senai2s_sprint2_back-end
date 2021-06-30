@@ -49,10 +49,13 @@ namespace senai.spmedicalgroup.webapi.Controllers
                     new Claim(JwtRegisteredClaimNames.Email, UsuarioBuscado.Email),
 
                     new Claim(JwtRegisteredClaimNames.Jti, UsuarioBuscado.IdUsuario.ToString()),
+                    
+                    new Claim(JwtRegisteredClaimNames.Name, UsuarioBuscado.NomeUsuario),
 
                     new Claim(ClaimTypes.Role, UsuarioBuscado.IdTipoUsuario.ToString()),
 
                     new Claim("role", UsuarioBuscado.IdTipoUsuario.ToString())
+
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("spmedicalgroup-autenticacao"));
