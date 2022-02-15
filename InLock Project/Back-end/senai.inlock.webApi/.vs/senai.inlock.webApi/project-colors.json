@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "26a0df58-3a39-4f64-9090-74d8184e5fee": {
+      "ProjectGuid": "26a0df58-3a39-4f64-9090-74d8184e5fee",
+      "DisplayName": "senai.inlock.webApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

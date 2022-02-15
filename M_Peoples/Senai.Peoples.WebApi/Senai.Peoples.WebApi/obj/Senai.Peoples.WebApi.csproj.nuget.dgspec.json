@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj": {}
+    "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj": {
+    "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj",
         "projectName": "Senai.Peoples.WebApi",
-        "projectPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj",
-        "packagesPath": "C:\\Users\\mrodr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\obj\\",
+        "projectPath": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Mateus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\M_Peoples\\Senai.Peoples.WebApi\\Senai.Peoples.WebApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mrodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mateus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +46,7 @@
           "dependencies": {
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.2, )"
+              "version": "[4.8.3, )"
             }
           },
           "imports": [
@@ -55,6 +59,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.13, 5.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -63,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

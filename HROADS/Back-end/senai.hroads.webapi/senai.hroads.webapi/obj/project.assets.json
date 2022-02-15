@@ -11,7 +11,7 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.5": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.9": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
@@ -2229,10 +2229,10 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.5": {
-      "sha512": "wivdSSc+S+bNIWj/nUlpfNnpTnj5O+33NqXKiDlHFYaO2J6whRqNsGXlJ+UViKUzKMIDvj4K67W+dmVywUyXiw==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.9": {
+      "sha512": "zG4G0waQzkdG0TazXbyuvIxpmWgQllnIjuKNcXNIh5mwcMVG1UPqT09L5EkAGmW2TtktJNWvojr77OpiOpK9JA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.5",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2240,7 +2240,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
@@ -7524,7 +7524,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.5",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.9",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
@@ -7534,19 +7534,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mrodr\\.nuget\\packages\\": {}
+    "C:\\Users\\Mateus\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\senai.hroads.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\senai.hroads.webapi.csproj",
       "projectName": "senai.hroads.webapi",
-      "projectPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\senai.hroads.webapi.csproj",
-      "packagesPath": "C:\\Users\\mrodr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrodr\\Documents\\GitHub\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\obj\\",
+      "projectPath": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\senai.hroads.webapi.csproj",
+      "packagesPath": "C:\\Users\\Mateus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mateus\\Desktop\\senai2s_sprint2_back-end\\HROADS\\Back-end\\senai.hroads.webapi\\senai.hroads.webapi\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mrodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mateus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7574,7 +7579,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[5.0.5, )"
+            "version": "[5.0.9, )"
           },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
@@ -7613,6 +7618,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.13, 5.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7621,7 +7632,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b27e73b3-6980-4f83-9a8e-5b7b3df79b58": {
+      "ProjectGuid": "b27e73b3-6980-4f83-9a8e-5b7b3df79b58",
+      "DisplayName": "senai_filmes_webApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

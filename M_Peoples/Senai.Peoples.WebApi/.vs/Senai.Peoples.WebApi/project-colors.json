@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c4df9c4f-fafa-476d-94fa-77fe8cb83e5c": {
+      "ProjectGuid": "c4df9c4f-fafa-476d-94fa-77fe8cb83e5c",
+      "DisplayName": "Senai.Peoples.WebApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
